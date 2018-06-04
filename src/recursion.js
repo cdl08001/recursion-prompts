@@ -54,10 +54,6 @@ var sum = function(array) {
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
 
-  // [1,[2,3],[[4]],5]
-  // [[1],[2,3],[[4]],5]
-  // [[12,[[34],[56]],78]]
-
   // Recursive:
   // If the first element in the array is an array, call 'arraySum' on element:
   if(Array.isArray(array[0])){
@@ -124,7 +120,28 @@ var range = function(x, y) {
 // 8^2 = 8 x 8 = 64. Here, 8 is the base and 2 is the exponent.
 // exponent(4,3); // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
-var exponent = function(base, exp) {
+var exponent = function(base, exp) { 
+
+  // Check for 0 exponent
+  if(exp === 0){
+    return 1;
+  }
+  
+  // Base:
+  // if 'exp' is equal to 1, return base:
+  if(exp === 1){
+    return base;
+  }
+
+  // Recursive: 
+  // If exp is positive: return 'base' times the result of calling 'exponent(base, exp - 1)':
+  if(exp > 1){
+    return base * exponent(base, exp - 1);
+  } else {
+    return Number((1 / base * exponent(base, exp + 1)).toFixed(5));
+  }
+  
+
 };
 
 // 8. Determine if a number is a power of two.
