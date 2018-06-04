@@ -53,7 +53,7 @@ var sum = function(array) {
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
-  
+
   // [1,[2,3],[[4]],5]
   // [[1],[2,3],[[4]],5]
   // [[12,[[34],[56]],78]]
@@ -82,6 +82,30 @@ var arraySum = function(array) {
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+
+  // Create a list in order to iterate over each integer
+  var integerList = (''+n).split('');  
+
+  // Base: 
+  // If the interList only contains 1 element, if that value is 2/4/6/8/0, return true. Otherwise, return false;
+  if(integerList.length === 1){
+    var test = ['2','4','6','8','0']
+    if(test.indexOf(integerList[0]) >= 0){
+      return true;
+    } else {
+      return false; 
+    }
+  }
+
+  // Recursive:
+  // If the current integer is not the last element in the array, remove it.
+  // Join the elements of the array together, convert back into a number and pass the 
+  // number back into 'isEven'
+  if(integerList.length > 1){
+    integerList.shift();
+    return isEven(parseInt(integerList.join('')));
+  }
+
 };
 
 // 5. Sum all integers below a given integer.
