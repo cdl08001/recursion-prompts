@@ -138,6 +138,7 @@ var exponent = function(base, exp) {
   if(exp > 1){
     return base * exponent(base, exp - 1);
   } else {
+    // If exp is not positive: compute x ^-n and take its reciprocal:
     return Number((1 / base * exponent(base, exp + 1)).toFixed(5));
   }
   
