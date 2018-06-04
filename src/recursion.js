@@ -108,6 +108,23 @@ var isEven = function(n) {
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+   
+  // Base: if n = 1, return 1
+  if(n === 0){
+    return 0;
+  }
+
+  //Recursive: 
+  // If n is is greater than 0, return n-1 plus the result of calling sumBelow with n-1:
+  if(n > 0){
+   return n-1 + sumBelow(n-1);
+ } else {
+  // Otherwise, if n is less than 0, return n+1 plus the result of calling sumBelow with n+1: 
+   return n+1 + sumBelow(n+1);
+ }
+  
+
+
 };
 
 // 6. Get the integers within a range (x, y).
