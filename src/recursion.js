@@ -53,6 +53,31 @@ var sum = function(array) {
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
+  
+  // [1,[2,3],[[4]],5]
+  // [[1],[2,3],[[4]],5]
+  // [[12,[[34],[56]],78]]
+
+  // Recursive:
+  // If the first element in the array is an array, call 'arraySum' on element:
+  if(Array.isArray(array[0])){
+    return arraySum(array[0]) + arraySum(array.slice(1));
+
+  } else if(array.length === 0){
+
+    // Base 1: Return 0 if array is empty:
+      return 0;
+
+  } else if(array.length === 1){
+
+    // Base 2: Return the only element if only one element exists:
+      return parseInt(array[0]);
+
+  } else {
+
+      // Return the first value in the array. Add it to the results of calling 'arraySum' on the remaining elements.
+      return parseInt(array[0]) + arraySum(array.slice(1));
+  }
 };
 
 // 4. Check if a number is even.
