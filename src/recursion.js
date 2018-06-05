@@ -208,7 +208,32 @@ var powerOfTwo = function(n) {
 };
 
 // 9. Write a function that reverses a string.
+
+// 3) Convert array to string
+// 4) Call 'reverse' again on updated string.
+// 5) if the string length is 1, return the only element
 var reverse = function(string) {
+
+  // Convert string to array.
+  var stringArray = string.split('');
+
+
+  // Remove the last element of the array
+  var targetLetter = stringArray.pop();
+  string = stringArray.join('');
+
+  // Push last element to new string
+  var result = '' + targetLetter;
+
+
+  // If the stringArray is empty, return the first letter as its the only that has not been
+  // pushed to the results
+  if(stringArray.length === 0){
+    return targetLetter;
+  } else {
+    // Otherwise, call reverse again to reverse remaining elements
+    return targetLetter + reverse(string);
+  }
 };
 
 // 10. Write a function that determines if a string is a palindrome.
