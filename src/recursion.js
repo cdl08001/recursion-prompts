@@ -129,7 +129,31 @@ var sumBelow = function(n) {
 
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
+// expect(range(3,8)).to.eql([4,5,6,7]);
+// expect(range(5,5)).to.eql([]);
+// expect(range(2,3)).to.eql([]);
+
+
 var range = function(x, y) {
+
+  // Increment 'x' each time range() is called:
+  x = x + 1;
+
+  if(x === y || x - 1 === y){
+    return [];
+  }
+
+  //Base:
+  // If x is y-1, return y
+  if(x === y - 1){
+    return x;
+  }
+
+  //Recursive:
+  var results = [];
+  results.push(x, range(x, y));
+  var myNewResult = Array.prototype.concat.apply([], results);
+  return myNewResult;
 };
 
 // 7. Compute the exponent of a number.
