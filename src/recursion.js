@@ -190,7 +190,21 @@ var exponent = function(base, exp) {
 // powerOfTwo(1); // true
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
+// A number is a power of two if at any point dividing the number by 2 = 1. 
+// If n < 1, we can consider n to NOT be a value of 2
 var powerOfTwo = function(n) {
+
+  //Base: 
+  if(n === 1){
+    return true;
+  } else if(n < 1){
+      return false;
+  } else {
+      //Recursive: Divide n by 2: 
+      var testValue = n / 2; 
+      return powerOfTwo(testValue);
+  }
+
 };
 
 // 9. Write a function that reverses a string.
